@@ -2,7 +2,8 @@
 #include"RSA.h"
 
 
-
+char input_txt[100]="Gaand Faddiya yeh RSA ne";
+int ciphered_txt[100],decrypted_txt[100];
 
 int p,q,input_number;
 long int n,phifunction,encrypted_number,decrypted_number;
@@ -38,17 +39,32 @@ int main(){
     printf("Private Key: %li\n",keyed.d);
     printf("Modulo: %li\n",n);
 
-    printf("Enter the number to encrypt:\n");
-    scanf(" %d", &input_number);
-    if(input_number>n){
-        printf("Since the value of modulo is less than entered number try another number or larger prime couples.\n\n-----------------------------------------------------------------------------\n\n");
-        main();
+
+    int i=0;
+    while(input_txt[i]!='\0'){
+    encrypted_number = encrypt((long int)input_txt[i],keyed.e,n);
+    ciphered_txt[i] = (int)encrypted_number;
+    i++;
     }
-    else{
-    encrypted_number = encrypt((long int)input_number,keyed.e,n);
-    decrypted_number = decrypt(encrypted_number,keyed.d,n);
-    printf("The encrypted form of %d is %li\n",input_number,encrypted_number);
-    printf("The decrypted form of %li is %li\n",encrypted_number,decrypted_number);
+
+
+    printf("The ciphered text is:\n");
+    for(int j=0;j<i;j++){
+    printf("%c",ciphered_txt[j]);
+    }
+
+    printf("\n---------------------------------------------------------------\n");
+   for(int j=0;j<i;j++){
+    decrypted_number = decrypt(ciphered_txt[j],keyed.d,n);
+    decrypted_txt[j] = (int)decrypted_number;
+    }
+
+
+    printf("The decrypted text is:\n");
+
+
+    for(int j=0;j<i;j++){
+    printf("%c",decrypted_txt[j]);
     }
 
     return 0;

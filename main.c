@@ -2,16 +2,18 @@
 #include<math.h>
 
 int p,q,input_number;
-long int n,e=1,d=1,phifunction,ed=1,encrypted_number,decrypted_number;
+long int n,e=2,d=1,phifunction,ed=1,encrypted_number,decrypted_number;
+
+
 void generate_key();
 int check_prime(long int);
 void encrypt();
 void decrypt();
-
+int check_gcd(long int,long int);
 
 
 int main(){
-    p=1,q=1,e=1,d=1,ed=1;
+    p=1,q=1,e=2,d=1,ed=1;
 
     while(1){
         //Takes input if the numbers are prime else asks again for input
@@ -33,7 +35,7 @@ int main(){
         }
 
     }
-
+    phifunction = (long int)((p-1)*(q-1));
     n = (long int)(p * q);
     generate_key();
     printf("Public Key: %li\n",e);
@@ -74,17 +76,41 @@ int check_prime(long int n){
     return 1;
 }
 
+int check_gcd(long int n1,long int n2){
+    int gcd;
+    for(int i=1; i <= n1 && i <= n2; ++i)
+    {
+        // Checks if i is factor of both integers
+        if(n1%i==0 && n2%i==0)
+            gcd = i;
+    }
+    if(gcd==1){
+        return 1;
+    }
+    else{
+        return 0;
+    }
+}
 
 //Generate the keys
 void generate_key(){
-    phifunction = (long int)((p-1)*(q-1)+1);
     ed = e*d;
-    
-    while(ed!=phifunction){
-        e+=1;
-        d = (phifunction/e);
-        ed = e *d;
+    // printf("%li",e);
+    // while(ed!=(phifunction+1)){
+    //     e+=1;
+    //     d = (phifunction/e);
+    //     ed = e *d;
+    // }
+    while(1){
+        if(check_gcd(e,phifunction)){
+            d = (phifunction+1)/e;
+            if(e*d==(phifunction+1)){
+                break;
+            }
+        }
+        e++;
     }
+    
 }
 
 

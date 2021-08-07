@@ -1,5 +1,3 @@
-#include<stdio.h>
-#include<math.h>
 //custom header file
 #include"RSA.h"
 

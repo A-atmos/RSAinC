@@ -49,7 +49,10 @@ int main(){
     printf("Enter the text to be encrypted:\n");
     gets(input_txt);
 
-    printf("%s",input_txt);
+    for(int i=0;i<strlen(input_txt);i++){
+        printf("%d\t",input_txt[i]);
+    }
+    printf("\n\n");
 
     int i=0;
     while(input_txt[i]!='\0'){
@@ -66,7 +69,7 @@ int main(){
 
     printf("The ciphered text is:\n");
     for(int j=0;j<i;j++){
-    printf("%c",ciphered_txt[j]);
+    printf("%d\n",ciphered_txt[j]);
     }
 
     printf("\n---------------------------------------------------------------\n");
@@ -80,7 +83,7 @@ int main(){
 
 
     for(int j=0;j<i;j++){
-    printf("%c",decrypted_txt[j]);
+    printf("%d \n",decrypted_txt[j]);
     }
 
     return 0;

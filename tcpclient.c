@@ -1,9 +1,23 @@
-#include <netdb.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include <sys/socket.h>
+#include <sys/types.h>
 #include <math.h>
+
+
+
+#ifdef _WIN32
+#define WIN32_LEAN_AND_MEAN 1
+#include <winsock2.h>
+#include <windows.h>
+#else
+#include <netdb.h>
+#include <sys/socket.h>
+#include <netinet/in.h>
+#endif
+
+
+
 #define MAX 100
 #define PORT 8080
 #define SA struct sockaddr

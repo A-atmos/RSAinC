@@ -1,5 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+
 
 typedef struct keys{
     long int e;
@@ -24,25 +26,42 @@ int check_gcd(long int n1,long int n2){
 
 struct keys generate_keys(long int phifunction){
     long int e=2,d;
+    long int array_e[15];
+    int loop=2,elem=0;
     struct keys key;
-    while(1){
-        if(check_gcd(e,phifunction)){
-            
-            d = (phifunction+1)/e;
-            if(e*d==(phifunction+1)){
 
-                printf("\n");
-                if(d==1){
-                    printf("Enter the other pair of prime numbers as there pairs wont give you keys as integers!");
-                    exit(1);
-                }
-                else{
-                break;
-                }
+
+    //generate 15 values of e --|
+    while(elem<16){
+            if(check_gcd(loop,phifunction)){
+                array_e[elem]=loop;
+                elem++;
             }
+            loop++;
+            if(loop>=phifunction){
+                break;
+            }
+        }        
+
+        //randomly allocate the value of e--|
+
+        srand(time(NULL));
+        int random_elem = rand() % elem;
+        e=array_e[random_elem];
+        
+
+        //calculate value of d--|
+        int i=1;
+        while(i){
+            d = (phifunction*i+1)/e;
+            if(e*d==(phifunction*i+1)){
+                i=0;
+                break;
+            }
+            // printf("%d \n",i);
+            i++;
         }
-        e++;
-    }
+            
     key.e = e;
     key.d = d;
     return key;

@@ -32,7 +32,7 @@ struct keys generate_keys(long int phifunction){
 
 
     //generate 15 values of e --|
-    while(elem<16){
+    while(elem<15){
             if(check_gcd(loop,phifunction)){
                 array_e[elem]=loop;
                 elem++;

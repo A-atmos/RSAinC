@@ -61,6 +61,11 @@ struct keys generate_keys(long int phifunction){
             // printf("%d \n",i);
             i++;
         }
+
+        if(e==d){
+            e = generate_keys(phifunction).e;
+            d = generate_keys(phifunction).d;
+        }
             
     key.e = e;
     key.d = d;

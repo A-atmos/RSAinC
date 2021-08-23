@@ -23,7 +23,7 @@ int read(int a[99])
     char fn[99];
     printf("Enter the name of file to open:");
     scanf("%s",fn);
-    file=fopen("text4.txt","r");
+    file=fopen(fn,"r");
     if(fopen==NULL)
         exit(0);
     for (i=0;a[i]!=EOF;i++)

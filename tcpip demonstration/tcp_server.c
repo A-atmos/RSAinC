@@ -156,11 +156,19 @@ void func(int sockfd)
 
 		//decrypting the data from integer format to string format and storing in buff
 
-		i1 = (sizeof(tosend)/sizeof(int));
-
-		for(i2=0;i2<i1;i2++){
-			buff[i2] = decrypt(tosend[i2],keyed.d,n);
-		} 
+				// i1 = (sizeof(tosend)/sizeof(int));
+		int i = 0;
+		printf("\n\n--------------------------------------------------------\nValue before decryption: \n");
+		while(tosend[i]!=0){
+			printf("%d,",tosend[i]);
+			buff[i] = decrypt(tosend[i],keyed.d,n);
+			i++;
+		}
+		// for(i2=0;i2<i1;i2++){
+		// 	printf("%d,",tosend[i2]);
+		// 	buff[i2] = decrypt(tosend[i2],keyed.d,n);
+		// } 
+		printf("\n-----------------------------------------------------------------\n");
 
 
 		// print buffer which contains the client contents

@@ -3,7 +3,7 @@
 #include <string.h>
 #include <sys/types.h>
 #include <math.h>
-
+#include <time.h>
 
 
 #ifdef _WIN32

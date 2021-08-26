@@ -42,6 +42,8 @@ int save (int *a, int check)
         }
         
     fprintf(file,"\0");
+    print_exit();
+    exit(0);
     return 0;
 }
 
@@ -65,11 +67,11 @@ int read(int check)
         temp[temp_num]=0;
     }
     else if(check==1){
-    for (temp_num=0;temp[temp_num]!=EOF;temp_num++)
-    {
-    fscanf(file,"%d ",&temp[temp_num]);
-    }
-    temp[temp_num]=0;
+        for (temp_num=0;temp[temp_num]!=EOF;temp_num++)
+        {
+        fscanf(file,"%d ",&temp[temp_num]);
+        }
+        temp[temp_num]=0;
     }
     // int j=0;
     // while(temp[j]!=0){
@@ -231,7 +233,7 @@ void encryption_algo(long int public_key, long int modulo_n){
     }
 
     fflush(stdin);
-    printf("Would you like to save the encrypted data in a file?\nPress y for yes or any other character for No!\n");
+    printf("\n\nWould you like to save the encrypted data in a file?\nPress y for yes or any other character for No!\n");
     ch = getchar();
 
     if(ch=='y' || ch == 'Y'){
@@ -242,7 +244,8 @@ void encryption_algo(long int public_key, long int modulo_n){
 
 
 void decryption_algo(long int private_key, long int modulo_n){
-    int encrypted_numbers[100] = { 0 },num=0,decrypted_txt[100] = { 0 };
+    int encrypted_numbers[100],num=1,decrypted_txt[100];
+    encrypted_numbers[0]=1;
     long int decrypted_number;
 
     //ask for file input
@@ -263,9 +266,12 @@ void decryption_algo(long int private_key, long int modulo_n){
         }
         encrypted_numbers[loop] = 0;
         num = loop;
-    }else{
+    }
+    else{
         printf("Enter the ciphered numbers and press 0 to End:\n");
-        while(encrypted_numbers[num]!=0){
+        fflush(stdin);
+        scanf(" %d",&encrypted_numbers[0]);
+        while(encrypted_numbers[num-1]!=0){
             scanf(" %d",&encrypted_numbers[num]);
             num++;
         }
@@ -283,7 +289,7 @@ void decryption_algo(long int private_key, long int modulo_n){
 
     //save or not!
     fflush(stdin);
-    printf("Would you like to save the derypted data in a file?\nPress y for yes or any other character for No!\n");
+    printf("\n\nWould you like to save the derypted data in a file?\nPress y for yes or any other character for No!\n");
     ch = getchar();
 
     if(ch=='y' || ch == 'Y'){

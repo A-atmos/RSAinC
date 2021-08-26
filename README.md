@@ -1,3 +1,4 @@
+
 # RSAinC
 ## RSA Implementation in C as a first Sem Project 
 
@@ -186,3 +187,17 @@ Example: For the sake of calculation, we have taken two digit prime numbers.
 2. RSA scores high in slowness compared to other encryption systems. It is not convenient then to use it to encrypt a whole file.
 
 3. It is estimated that there is very high possibility of bruteforcing of RSA by Quantum Computer in the near future.
+
+# RSAinC
+## RSA Implementation in C as a first Sem Project 
+
+``` 
+Required :
+        - netdb.h
+        - netinet/in.h
+        - sys/socket.h
+    
+    The above mentioned header files are required by the compiler to compile the code!
+
+```
+

@@ -1,5 +1,8 @@
-#include<math.h>
-#include<stdio.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+
+
 typedef struct keys{
     long int e;
     long int d;
@@ -22,19 +25,48 @@ int check_gcd(long int n1,long int n2){
 }
 
 struct keys generate_keys(long int phifunction){
-    long int e,d;
+    long int e=2,d;
+    long int array_e[15];
+    int loop=2,elem=0;
     struct keys key;
-    while(1){
-        if(check_gcd(e,phifunction)){
-            
-            d = (phifunction+1)/e;
-            if(e*d==(phifunction+1)){
-                printf("\n");
+
+
+    //generate 15 values of e --|
+    while(elem<15){
+            if(check_gcd(loop,phifunction)){
+                array_e[elem]=loop;
+                elem++;
+            }
+            loop++;
+            if(loop>=phifunction){
                 break;
             }
+        }        
+
+        //randomly allocate the value of e--|
+
+        srand(time(NULL));
+        int random_elem = rand() % elem;
+        e=array_e[random_elem];
+        
+
+        //calculate value of d--|
+        int i=1;
+        while(i){
+            d = (phifunction*i+1)/e;
+            if(e*d==(phifunction*i+1)){
+                i=0;
+                break;
+            }
+            // printf("%d \n",i);
+            i++;
         }
-        e++;
-    }
+
+        if(e==d){
+            e = generate_keys(phifunction).e;
+            d = generate_keys(phifunction).d;
+        }
+            
     key.e = e;
     key.d = d;
     return key;
@@ -59,19 +91,18 @@ long int decrypt(long int encrypted_number,long int d,long int n){
     return temp_decrypt;
 }
 
-int check_prime(long int n){
-    
-    if(n<=2){
-        return 1;
-    }
-    if (n%2==0 || n<=1){
+
+int check_prime(int n){
+    fflush(stdin);
+    if(n%2==0){
         return 0;
     }
-    int sqr = (int)((int)sqrt(n)+1);
-    for(int i = 3; i<sqr;i=i+2){
-        if(n%i==0){
-            return 0;
-        }
+    
+    for (int i = 2; i <= n / 2; ++i) {
+    // condition for non-prime
+    if (n % i == 0) {
+      return 0;
     }
+  }
     return 1;
 }

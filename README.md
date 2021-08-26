@@ -1,6 +1,6 @@
 
 # RSAinC
-## RSA Implementation in C as a first Sem Project 
+## RSA Encryption Algorithm Implementation in C
 
 ``` 
 Required :
@@ -8,7 +8,7 @@ Required :
         - netinet/in.h
         - sys/socket.h
     
-    The above mentioned header files are required by the compiler to compile the code!
+    The above mentioned header files are required by the compiler to compile the code for the tcp\ip implementation!
 
 ```
 # Documentation🚀  (not official but type of 😉)
@@ -188,16 +188,4 @@ Example: For the sake of calculation, we have taken two digit prime numbers.
 
 3. It is estimated that there is very high possibility of bruteforcing of RSA by Quantum Computer in the near future.
 
-# RSAinC
-## RSA Implementation in C as a first Sem Project 
-
-``` 
-Required :
-        - netdb.h
-        - netinet/in.h
-        - sys/socket.h
-    
-    The above mentioned header files are required by the compiler to compile the code!
-
-```
 

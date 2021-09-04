@@ -23,7 +23,7 @@
 #define SA struct sockaddr
 
 
-#include "headers.h"
+#include "../headers.h"
 
 //global variable declarations
 int p,q;

@@ -22,7 +22,7 @@
 #define PORT 8080
 #define SA struct sockaddr
 
-#include "headers.h"
+#include "../headers.h"
 
 
 int p,q;

@@ -4,8 +4,7 @@
 #include <string.h>
 
 //custom header file
-#include "RSA.h"
-#include "render.h"
+#include "headers.h"
 
 //function declarations
 
@@ -86,7 +85,7 @@ int main(){
     
     int choose=0,choose_1=0,choose_2=0;
     long int pub_key=0,pri_key=0,mod_n=0;
-
+    cryptics_logo();
     welcome();
     by_cryptics();
     while(1){

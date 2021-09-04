@@ -22,7 +22,7 @@
 #define PORT 8080
 #define SA struct sockaddr
 
-#include "RSA.h"
+#include "headers.h"
 
 
 int p,q;
@@ -41,6 +41,9 @@ int main()
 	struct sockaddr_in servaddr, cli;
 
 	//Generate the keys
+	welcome();
+    by_cryptics();
+	print_generate_keys();
 	generate();
 	printf("\n\n");
 
@@ -195,6 +198,7 @@ void func(int sockfd)
 		// if msg contains "Exit" then server exit and chat ended.
 		if (strncmp("exit", buff, 4) == 0) {
 			printf("\n----Server Exit...----\n");
+			print_exit();
 			break;
 		}
 	}

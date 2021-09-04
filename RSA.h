@@ -1,3 +1,5 @@
+#ifndef RSA
+
 
 typedef struct keys{
     long int e;
@@ -102,3 +104,7 @@ int check_prime(int n){
   }
     return 1;
 }
+
+
+#define RSA 
+#endif

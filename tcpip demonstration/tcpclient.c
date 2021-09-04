@@ -23,7 +23,7 @@
 #define SA struct sockaddr
 
 
-#include "RSA.h"
+#include "headers.h"
 
 //global variable declarations
 int p,q;
@@ -42,6 +42,9 @@ int main()
 
 
 	//generate the private and public keys:
+	welcome();
+    by_cryptics();
+	print_generate_keys();
 	generate();
 	printf("\n\n");
 	// socket create and varification
@@ -169,6 +172,7 @@ void func(int sockfd)
         printf("\nFrom Server : %s", buff);
         if ((strncmp(buff, "exit", 4)) == 0) {
             printf("\n----Client Exit...----\n");
+			print_exit();
             break;
         }
     }

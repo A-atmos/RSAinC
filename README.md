@@ -13,7 +13,8 @@ Required :
 ```
 # Documentation🚀  (not official but type of 😉)
 
-## link to the site => [click here](https://cryptics.netlify.app)
+# Live implementation of project [click here](https://cryptics.netlify.app)
+# Source code for site [click here](https://github.com/mandip1213/Cryptics)
 
 
 ## Encryption

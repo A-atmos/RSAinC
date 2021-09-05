@@ -11,10 +11,13 @@ Required :
     The above mentioned header files are required by the compiler to compile the code for the tcp\ip implementation!
 
 ```
+
+
+## Live implementation of project [click here](https://cryptics.netlify.app)
+## Source code for site [click here](https://github.com/mandip1213/Cryptics)
+
 # Documentation🚀  (not official but type of 😉)
 
-# Live implementation of project [click here](https://cryptics.netlify.app)
-# Source code for site [click here](https://github.com/mandip1213/Cryptics)
 
 
 ## Encryption
